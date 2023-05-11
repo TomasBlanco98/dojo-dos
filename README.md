@@ -7,6 +7,7 @@
 * Campos Tomás
 * Atoche Luis
 * Escobar Rodrigo
+* Avila Valentin
 
 ## Proyecto: Semáforo
 ![proyecto](img/Subte.png)
@@ -111,4 +112,4 @@ void PrenderSegmento(int numero, int led_uno, int led_dos, int led_tres, int led
 ```
 
 ## Link al proyecto
-* [Proyecto](https://www.tinkercad.com/things/6YA66ADFYq2-ejercicio-subte-parte-2-tomas-blanco-rivas/editel?sharecode=rl6EYjBLHjxwDtvBhoVDsmGrejKv2aXMF1LG9Rl8HpI)
+* [Proyecto](https://www.tinkercad.com/things/6YA66ADFYq2)
