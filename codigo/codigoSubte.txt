@@ -1,0 +1,126 @@
+// C++ code
+/* 
+Tomas Blanco Rivas
+1J
+Ejercicio subte
+*/
+#define A 7
+#define B 8
+#define C A1
+#define D A2
+#define E A3
+#define F 6
+#define G 5
+#define LED_ROJO_UNO 13
+#define LED_AMARILLO_DOS 12
+#define LED_AMARILLO_TRES 11
+#define LED_AMARILLO_CUATRO 10
+#define BUZZER A0
+#define BOTON 9
+
+void PrenderSegmento(int numero, int led_uno, int led_dos, 
+                     int led_tres, int led_cuatro, int buzzer);
+int contador = 0;
+int bandera = false;
+void setup()
+{
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(LED_ROJO_UNO, OUTPUT);
+  pinMode(LED_AMARILLO_DOS, OUTPUT);
+  pinMode(LED_AMARILLO_TRES, OUTPUT);
+  pinMode(LED_AMARILLO_CUATRO, OUTPUT);
+  pinMode(BOTON, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  if(digitalRead(BOTON) == LOW or bandera == true)
+  {
+    PrenderSegmento(contador, LED_ROJO_UNO, LED_AMARILLO_DOS,
+                  LED_AMARILLO_TRES, LED_AMARILLO_CUATRO, BUZZER);
+  	delay(1000);
+  	contador++;
+  	if(contador > 3)
+  	{
+    	contador = 0;
+  	}
+    bandera = true;
+  }
+}
+
+void PrenderSegmento(int numero, int led_uno, int led_dos,
+                     int led_tres, int led_cuatro, int buzzer)
+{
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+  digitalWrite(led_uno, LOW);
+  digitalWrite(led_dos, LOW);
+  digitalWrite(led_tres, LOW);
+  digitalWrite(led_cuatro, LOW);
+  
+  switch(numero)
+  {
+    case 0:
+    {
+      digitalWrite(led_uno, HIGH);
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(G, HIGH);
+      tone(buzzer, 1000);
+      delay(500);
+      noTone(buzzer);
+      break;
+    }
+    case 1:
+    {
+      digitalWrite(led_dos, HIGH);
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(G, HIGH);
+      tone(buzzer, 600);
+      delay(500);
+      noTone(buzzer);
+      break;
+    }
+    case 2:
+    {
+      digitalWrite(led_tres, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      tone(buzzer, 400);
+      delay(500);
+      noTone(buzzer);
+      break;
+    }
+    case 3:
+    {
+      digitalWrite(led_cuatro, HIGH);
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      tone(buzzer, 200);
+      delay(500);
+      noTone(buzzer);
+      break;
+    }
+  }
+}
