@@ -9,7 +9,7 @@
 * Escobar Rodrigo
 * Avila Valentin
 
-## Proyecto: Semáforo
+## Proyecto: Subte
 ![proyecto](img/Subte.png)
 
 ## Descripción
